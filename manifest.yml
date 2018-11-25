@@ -1,0 +1,16 @@
+---
+applications:
+- path: ./app
+  name: watson-discovery-news-alerting-randd
+  buildpack: sdk-for-nodejs
+  memory: 128MB
+  instances: 1
+  random-route: false
+- path: ./app
+  name: watson-discovery-news-alert-notifier-randd
+  command: yarn run start-notifier
+  no-route: true
+  health-check-type: process
+  buildpack: sdk-for-nodejs
+  memory: 128MB
+  instances: 1
