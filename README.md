@@ -10,7 +10,7 @@ The focus of this Code Pattern is to monitor a product's marketplace life-cycle 
 
 Alert tracking can be set up for the following areas:
 * The product
-* The brand
+* The organization
 * Related products and brands
 * Positive or negative product sentiment
 * Stock prices
@@ -115,11 +115,13 @@ Two IBM Cloud applications should be created and running:
 * watson-discovery-news-alerting
 * watson-discovery-news-alerting-notifier
 
-Set the environment variables required for each the notifier service to perform properly. Use the values unique to your setup:
+Create the following two services: 
+Watson Discovery 
+Cloudant 
 
-```sh
-$ ibmcloud cf set-env watson-discovery-news-alert-notifier SMTP_SETTINGS '{"host":"smtp.gmail.com","user":"xxx@gmail.com","pass":"xxx","fromEmail":"xxx@gmail.com"}'
-$ ibmcloud cf set-env watson-discovery-news-alert-notifier BASE_URL 'https://watson-discovery-news-alerting.mybluemix.net'
+Connect/Bind both these services to the applications 
+
+
 ```
 
 Go to the URL route that is associated with the `watson-discovery-news-alerting` app in IBM Cloud to view the application. Typically, this would be `https://watson-discovery-news-alerting.mybluemix.net`.
