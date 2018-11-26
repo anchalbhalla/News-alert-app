@@ -92,7 +92,7 @@ $ yarn run start-notifier
 To deploy to IBM Cloud make sure you have the IBM Cloud CLI tool installed. Then run the following commands to connect it with IBM Cloud and login with your IBM Cloud credentials.
 
 ```sh
-$ cd watson-discovery-news-alerting
+$ cd News-alert-app
 $ ibmcloud login
 ```
 
