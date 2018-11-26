@@ -53,7 +53,7 @@ The Code Pattern highlights the steps required to build a front-end management i
 
 Clone the `watson-discovery-news-alerting` locally. In a terminal, run:
 ```
-$ git clone https://github.com/ibm/watson-discovery-news-alerting
+$ git clone https://github.com/anchalbhalla/News-alert-app
 ```
 
 ## 2. Create Watson Services with IBM Cloud
