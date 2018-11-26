@@ -116,12 +116,7 @@ Two IBM Cloud applications should be created and running:
 * watson-discovery-news-alerting-notifier
 
 
-Create the following two services: 
-* Watson Discovery
-* Cloudant
-
-
-Connect/Bind both these services to the applications 
+Connect/Bind both the services created before to the two applications deployed
 
 
 Go to the URL route that is associated with the `watson-discovery-news-alerting` app in IBM Cloud to view the application. Typically, this would be `https://watson-discovery-news-alerting.mybluemix.net`.
