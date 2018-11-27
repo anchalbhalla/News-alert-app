@@ -10,7 +10,7 @@ The focus of this Code Pattern is to monitor a product's marketplace life-cycle 
 
 Alert tracking can be set up for the following areas:
 * The product
-* The organization
+* The brand
 * Related products and brands
 * Positive or negative product sentiment
 * Stock prices
@@ -26,11 +26,15 @@ The Code Pattern highlights the steps required to build a front-end management i
 3. The backend server stores subscription information in a Cloudant NonSQL database for product tracking.
 4. The backend server sends user requests to the Watson Discovery Service. It acts as a proxy server, forwarding queries from the frontend to the Watson Discovery Service API while keeping sensitive API keys concealed from the user.
 5. The Watson Discovery Service queries the Watson News Collection for articles related to the product.
-6. The backend server sends periodic updates to email.
+6. The backend server sends periodic updates to email. 
+
+# Pre-requistes 
+* Create an IBM Cloud 
+* Install IBM Cloud CLI 
 
 # Included components
 
-* [Watson Discovery](https://www.ibm.com/watson/developercloud/discovery.html): A cognitive search and content analytics engine for applications to identify patterns, trens, and actionable insights.
+* [Watson Discovery](https://www.ibm.com/watson/developercloud/discovery.html): A cognitive search and content analytics engine for applications to identify patterns, trends, and actionable insights.
 * [Cloudant NoSQL DB for IBM Cloud](https://console.bluemix.net/docs/services/Cloudant/cloudant.html#overview): A fully managed data layer designed for modern web and mobile applications that leverages a flexible JSON schema.
 
 # Featured technologies
@@ -53,7 +57,7 @@ The Code Pattern highlights the steps required to build a front-end management i
 
 Clone the `watson-discovery-news-alerting` locally. In a terminal, run:
 ```
-$ git clone https://github.com/anchalbhalla/News-alert-app
+$ git clone https://github.com/ibm/watson-discovery-news-alerting
 ```
 
 ## 2. Create Watson Services with IBM Cloud
@@ -92,7 +96,7 @@ $ yarn run start-notifier
 To deploy to IBM Cloud make sure you have the IBM Cloud CLI tool installed. Then run the following commands to connect it with IBM Cloud and login with your IBM Cloud credentials.
 
 ```sh
-$ cd News-alert-app
+$ cd watson-discovery-news-alerting
 $ ibmcloud login
 ```
 
@@ -115,9 +119,12 @@ Two IBM Cloud applications should be created and running:
 * watson-discovery-news-alerting
 * watson-discovery-news-alerting-notifier
 
+Set the environment variables required for each the notifier service to perform properly. Use the values unique to your setup:
 
-Connect/Bind both the services created before to the two applications deployed
-
+```sh
+$ ibmcloud cf set-env watson-discovery-news-alert-notifier SMTP_SETTINGS '{"host":"smtp.gmail.com","user":"xxx@gmail.com","pass":"xxx","fromEmail":"xxx@gmail.com"}'
+$ ibmcloud cf set-env watson-discovery-news-alert-notifier BASE_URL 'https://watson-discovery-news-alerting.mybluemix.net'
+```
 
 Go to the URL route that is associated with the `watson-discovery-news-alerting` app in IBM Cloud to view the application. Typically, this would be `https://watson-discovery-news-alerting.mybluemix.net`.
 
